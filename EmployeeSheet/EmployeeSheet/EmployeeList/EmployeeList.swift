@@ -35,7 +35,7 @@ struct EmployeeList: View {
                 .toolbarBackground(.cyan, for: .navigationBar)
                 .toolbar {
                     ToolbarItem(placement: .principal) {
-                        Text("My title")
+                        Text("Employee")
                             .foregroundColor(.white)
                             .fontWeight(.bold)
                             .font(.system(size: 20))
