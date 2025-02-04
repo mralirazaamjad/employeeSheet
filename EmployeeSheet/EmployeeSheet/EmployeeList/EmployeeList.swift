@@ -41,17 +41,14 @@ struct EmployeeList: View {
                             .font(.system(size: 20))
                     }
                 }
-                
-                
-                if showAlert {
-                    let _ = print("now show alert")
-                    CustomerAlert { isDelete in
-                        showAlert = false
-                        if isDelete {
-                            deleteItem()
-                        }
-                    }
-                }
+//                .alert(isPresented: $showAlert){
+//                    Alert(
+//                        title: Text("Alert!"),
+//                        message: Text("Are you sure you want to delete"),
+//                        primaryButton: .default(Text("OK")),
+//                        secondaryButton: .cancel()
+//                    )
+//                }
                 
                 if isLoading {
                     CircularLoader()
@@ -61,6 +58,17 @@ struct EmployeeList: View {
         .navigationBarBackButtonHidden()
         .onAppear {
             getList()
+        }
+        .overlay {
+            if showAlert {
+                let _ = print("now show alert")
+                CustomerAlert { isDelete in
+                    showAlert = false
+                    if isDelete {
+                        deleteItem()
+                    }
+                }
+            }
         }
     }
     
