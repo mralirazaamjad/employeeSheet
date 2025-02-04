@@ -9,7 +9,7 @@ import SwiftUI
 
 struct LoaderView: View {
     
-    @State private var color = Color.white
+    @State private var color = Color.yellow
     @State var progress: Double = 0
     let timer = Timer.publish(every: 0.1, on: .main, in: .common).autoconnect()
     

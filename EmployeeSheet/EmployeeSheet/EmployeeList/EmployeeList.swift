@@ -49,10 +49,6 @@ struct EmployeeList: View {
 //                        secondaryButton: .cancel()
 //                    )
 //                }
-                
-                if isLoading {
-                    CircularLoader()
-                }
             }
         }
         .navigationBarBackButtonHidden()
@@ -69,12 +65,16 @@ struct EmployeeList: View {
                     }
                 }
             }
+            
+            if isLoading {
+                CircularLoader()
+            }
         }
     }
     
     private func deleteItem() {
         isLoading = true
-        let url = APICaller.baseUrl + "/\(arrayEmployee[deleteIndex].id ?? 0)"
+        let url = APICaller.share.baseUrl + "/\(arrayEmployee[deleteIndex].id ?? 0)"
         APICaller.share.callAPI(url: url,
                                 method: .delete,
                                 params: nil,
@@ -94,7 +94,7 @@ struct EmployeeList: View {
     
     private func getList() {
         isLoading = true
-        APICaller.share.callAPI(url: APICaller.baseUrl,
+        APICaller.share.callAPI(url: APICaller.share.baseUrl,
                                 method: .get,
                                 params: nil,
                                 responseType: [EmployeeResponse].self)

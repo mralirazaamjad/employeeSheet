@@ -11,7 +11,7 @@ struct CircularLoader: View {
     var body: some View {
         ZStack {
             LoaderView(progress: 0.8)
-                .frame(width: 100, height: 100)
+                .frame(width: 80, height: 80)
         }
         .containerRelativeFrame([.horizontal, .vertical])
         .background(.black.opacity(0.3))

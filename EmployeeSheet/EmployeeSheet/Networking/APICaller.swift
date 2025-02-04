@@ -9,10 +9,10 @@ import Foundation
 import Alamofire
 
 final class APICaller {
-    static let baseUrl = "https://jsonplaceholder.typicode.com/posts"
     static let share = APICaller()
     let headers: HTTPHeaders = ["Content-Type": "application/json",
                                 "Accept": "application/json"]
+    let baseUrl = "https://jsonplaceholder.typicode.com/posts"
     
     private init() {}
     
